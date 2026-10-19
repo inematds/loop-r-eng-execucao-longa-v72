@@ -157,7 +157,7 @@
           },
           {
             "rot": "In a real session",
-            "html": "<p>Example from the kit's README (session idle for 5h33 with 220k tokens):</p><pre>● UserPromptSubmit operation blocked by hook:\n  Sessão parada há 5h33: o cache venceu e esta mensagem vai reprocessar ~220 mil tokens do seu limite.\n  Para continuar aqui, reenvie a mensagem. Para começar limpo: /clear e depois /prime\n  (o último handoff do projeto é indicado na abertura).</pre><p>Since 1.7.1, when this session saved a handoff, the warning includes its path on separate lines: <code>/clear</code> and <code>/prime handoffs/history/[arquivo].md</code>. Another session may have saved a newer one in the same project.</p>"
+            "html": "<p>Example from the kit's README (session idle for 5h33 with 220k tokens):</p><pre>● UserPromptSubmit operation blocked by hook:\n  Sessão parada há 5h33: o cache venceu e esta mensagem vai reprocessar ~220 mil tokens do seu limite.\n  Para continuar aqui, reenvie a mensagem. Para começar limpo: /clear e depois /prime\n  (o último handoff do projeto é indicado na abertura).</pre><p>Since 1.7.1, when this session saved a handoff, the warning includes its path on separate lines: <code>/clear</code> and <code>/prime handoffs/history/[file].md</code>. Another session may have saved a newer one in the same project.</p>"
           }
         ]
       }

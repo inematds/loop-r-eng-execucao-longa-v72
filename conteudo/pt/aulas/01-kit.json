@@ -192,7 +192,7 @@
           "id": "e3",
           "titulo": "E3 · O método nas regras globais",
           "min": "10 min",
-          "texto": "Cole o bloco de templates/AGENTS-long-run.md no ~/.claude/CLAUDE.md e no ~/.codex/AGENTS.md. Abra uma sessão nova e pergunte: \"como você começa uma execução longa?\"",
+          "texto": "Cole o bloco de templates/AGENTS-long-run.md no ~/.claude/CLAUDE.md e no ~/.codex/AGENTS.md. Abra uma sessão nova e pergunte: \"como você começa uma execução longa?\" O bloco também cita /session-handoff, /prime e recall: eles só passam a existir nas aulas 5 e 7.",
           "pronto": "<code>grep -c novo-longrun.sh ~/.claude/CLAUDE.md</code> → <code>1</code> ou mais, e a sessão nova responde citando novo-longrun.sh e critério nível 3 sem você lembrar."
         }
       ]

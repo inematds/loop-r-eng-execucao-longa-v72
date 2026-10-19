@@ -2,7 +2,7 @@
   "id": "loop-r-eng-execucao-longa-v72",
   "lang": "es",
   "url": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/es/",
-  "nome": "Execução Longa",
+  "nome": "Ejecución larga",
   "sub": "Formación LOOP-R Ingeniería · curso 2",
   "volta": {
     "t": "Área LOOP-R Ingeniería",
@@ -10,7 +10,7 @@
   },
   "lado_card": {
     "rot": "El kit de este curso",
-    "t": "Execução Longa (código abierto)",
+    "t": "Ejecución larga (código abierto)",
     "texto": "Templates, hook, loop headless y medición. Todo comando de las clases viene de él, en la versión del 18/10/2026.",
     "link": "Abrir la guía del kit",
     "href": "https://inematds.github.io/execucao-longa/guia/"

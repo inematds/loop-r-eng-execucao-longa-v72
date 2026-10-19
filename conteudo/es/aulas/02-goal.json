@@ -140,7 +140,7 @@
       "sub": "Ejemplo completado para una tarea pequeña (contar palabras). Cámbialo por el tuyo.",
       "blocos": [
         {
-          "rot": "longrun/[data]-contador-palavras/goal.md",
+          "rot": "longrun/[fecha]-contador-palavras/goal.md",
           "icone": "arquivo",
           "conteudo": "# Goal — contador-palavras\n\n- **Início:** 2026-10-19 09:00 · **Agente:** Claude /goal\n- **Tetos:** tempo 2 h · memória 2G\n\n## Resultado\n`conta.py` tem conta_palavras(texto) que conta palavras separadas por qualquer espaço.\n\n## Critérios de pronto (verificáveis)\n\n**Função**\n- [ ] `python3 -m pytest -q` → `3 passed`, 0 failed (e nunca menos de 3 testes)\n\n**Regressão**\n- [ ] `python3 -c \"import conta\"` → sem erro (o módulo continua importável)\n\n**Limite**\n- [ ] `git diff --exit-code -- tests/ pytest.ini` → código 0 (testes congelados)\n- [ ] `git diff --stat` → só `conta.py` e a pasta longrun/\n\n**Teste rápido por ciclo**: `python3 -m pytest -q`\n**Teste completo no final**: `python3 -m pytest -q`\n\n## Restrições\n- só pela assinatura; nenhuma API\n- não mexer em: tests/, pytest.ini\n\n## Portões humanos (parar e perguntar)\n- qualquer mudança fora de conta.py e da pasta longrun/"
         },
@@ -280,7 +280,7 @@
         },
         {
           "t": "Curso 1 de la formación: verificación y evals",
-          "href": "https://inematds.github.io/loop-r-eng-verificacao-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-verificacao-v72/es/",
           "icone": "check"
         },
         {

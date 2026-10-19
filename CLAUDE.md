@@ -9,6 +9,8 @@ When I correct you, or you catch yourself making a mistake: before continuing, a
 
 ## Lessons
 
+- Depois do traduzir.py, varra o cache `i18n/<lang>.json` por `[placeholder]` em PT (`[pasta]`, `[data]`, `[termo]`), por `<p>` inteiro que voltou em PT e pelo nome do curso sem tradução; fora de bloco copiável eles se traduzem no cache e o traduzir.py regrava sem chamar modelo (0 textos novos). Link para curso irmão vai para `/en/`/`/es/` sozinho desde o motor 7.8.11 (revisão de 19/10/2026).
+
 - Saída de terminal com selo "real" só se capturada de verdade (scratchpad, kit de 18/10/2026); comportamento do kit vem do código (hook-longrun 1.9.6), não da prosa dos docs (19/10/2026).
 - Projeto de ensaio do loop-longrun.sh precisa de `.gitignore` com `__pycache__/`, senão o pytest cria arquivo em `tests/` e o ciclo bom conta como "mexeu em protegido" (19/10/2026).
 - One-liner longo em `<code>` no "pronto quando" transbordava 390 px; corrigido no motor 7.5.7 (`overflow-wrap:anywhere`). `<pre>` na aba de saída também (19/10/2026).

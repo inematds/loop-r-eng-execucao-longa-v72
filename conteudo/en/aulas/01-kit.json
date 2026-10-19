@@ -19,7 +19,7 @@
     },
     {
       "icone": "pasta",
-      "t": "Create longrun/[data]-[slug]/ with one command"
+      "t": "Create longrun/[date]-[slug]/ with one command"
     },
     {
       "icone": "arquivo",
@@ -238,13 +238,13 @@
           "titulo": "E2 · The folder of a real run",
           "min": "10 min",
           "texto": "Pick a real task from one of your projects that takes more than an hour and create its folder. Run the same command twice.",
-          "pronto": "<code>ls ~/projetos/[seu-projeto]/longrun/*/ | wc -l</code> → <code>7</code>; the second call prints <code>já existe:</code> and <code>echo $?</code> → <code>1</code>."
+          "pronto": "<code>ls ~/projetos/[your-project]/longrun/*/ | wc -l</code> → <code>7</code>; the second call prints <code>já existe:</code> and <code>echo $?</code> → <code>1</code>."
         },
         {
           "id": "e3",
           "titulo": "E3 · The method in the global rules",
           "min": "10 min",
-          "texto": "Paste the block from templates/AGENTS-long-run.md into ~/.claude/CLAUDE.md and into ~/.codex/AGENTS.md. Open a new session and ask: \"how do you start a long run?\"",
+          "texto": "Paste the block from templates/AGENTS-long-run.md into ~/.claude/CLAUDE.md and into ~/.codex/AGENTS.md. Open a new session and ask: \"how do you start a long run?\" The block also mentions /session-handoff, /prime and recall: they only exist from lessons 5 and 7 on.",
           "pronto": "<code>grep -c novo-longrun.sh ~/.claude/CLAUDE.md</code> → <code>1</code> or more, and the new session answers by citing novo-longrun.sh and the level 3 criterion without you reminding it."
         }
       ]
@@ -339,7 +339,7 @@
         },
         {
           "t": "Course 0 of the track: anatomy of the loop and state outside the model",
-          "href": "https://inematds.github.io/loop-r-eng-base-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-base-v72/en/",
           "icone": "lista"
         },
         {

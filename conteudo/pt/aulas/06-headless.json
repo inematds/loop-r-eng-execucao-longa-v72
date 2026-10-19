@@ -152,9 +152,9 @@
           "titulo": "Caminho nas units",
           "sub": "armadilha",
           "texto": [
-            "As units em tools/systemd/ trazem o caminho absoluto da máquina do autor (/home/nmaldaner/…). Troque pelo seu HOME antes de ativar, senão o timer dispara e o serviço falha em silêncio."
+            "As units em tools/systemd/ trazem o caminho absoluto da máquina do autor (/home/nmaldaner/…). O sed do bloco da prática troca esse caminho pelo seu HOME antes de ativar; sem ele, o timer dispara e o serviço falha em silêncio."
           ],
-          "exemplo": { "rot": "Conferir", "texto": "systemctl --user list-timers longrun-vigia.timer → mostra o próximo disparo" }
+          "exemplo": { "rot": "Conferir", "texto": "grep -c nmaldaner ~/.config/systemd/user/longrun-vigia.service → 0; systemctl --user list-timers longrun-vigia.timer → mostra o próximo disparo" }
         },
         {
           "titulo": "Cron com trava",

@@ -42,7 +42,7 @@
           "icone": "cadeado",
           "titulo": "Trava",
           "sub": "flock -n",
-          "detalhe": "El loop abre longrun/[pasta]/.loop.lock con flock -n. Si otro loop ya corre en la misma carpeta, sale al instante con código 3 y \"outro loop já roda nesta pasta\". Vale también para cron: dos disparos nunca se atropellan."
+          "detalhe": "El loop abre longrun/[carpeta]/.loop.lock con flock -n. Si otro loop ya corre en la misma carpeta, sale al instante con código 3 y \"outro loop já roda nesta pasta\". Vale también para cron: dos disparos nunca se atropellan."
         },
         {
           "icone": "robo",
@@ -179,11 +179,11 @@
           "titulo": "Ruta en las units",
           "sub": "trampa",
           "texto": [
-            "Las units en tools/systemd/ traen la ruta absoluta de la máquina del autor (/home/nmaldaner/…). Cámbiala por tu HOME antes de activar, o el timer se dispara y el servicio falla en silencio."
+            "Las units en tools/systemd/ traen la ruta absoluta de la máquina del autor (/home/nmaldaner/…). El sed del bloque de la práctica cambia esa ruta por tu HOME antes de activar; sin él, el timer se dispara y el servicio falla en silencio."
           ],
           "exemplo": {
             "rot": "Verifica",
-            "texto": "systemctl --user list-timers longrun-vigia.timer → muestra el próximo disparo"
+            "texto": "grep -c nmaldaner ~/.config/systemd/user/longrun-vigia.service → 0; systemctl --user list-timers longrun-vigia.timer → muestra el próximo disparo"
           }
         },
         {
@@ -195,7 +195,7 @@
           ],
           "exemplo": {
             "rot": "Línea de crontab",
-            "texto": "0 2 * * * flock -n /tmp/meu-loop.lock timeout 4h ~/projetos/execucao-longa/tools/loop-longrun.sh ~/projetos/[projeto]/longrun/[pasta]"
+            "texto": "0 2 * * * flock -n /tmp/meu-loop.lock timeout 4h ~/projetos/execucao-longa/tools/loop-longrun.sh ~/projetos/[proyecto]/longrun/[carpeta]"
           }
         }
       ]
@@ -342,7 +342,7 @@
         },
         {
           "t": "Curso 4 de la formación: seguridad del loop autónomo",
-          "href": "https://inematds.github.io/loop-r-eng-seguranca-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-seguranca-v72/es/",
           "icone": "escudo"
         }
       ]

@@ -245,7 +245,7 @@
           "titulo": "E20 · Close and measure",
           "min": "30 min",
           "texto": "Close with the independent verification block and measure the session. Write the final line in progress.md and, if there was a failure, the smallest fix in the project's FALHAS.md.",
-          "pronto": "the full test, run by you, passes; <code>git diff --exit-code [commit-base] -- tests/</code> → <code>protegidos: 0</code>; progress.md has the final line with tokens and compactions from medir-sessao.py."
+          "pronto": "the full test, run by you, passes; <code>git diff --exit-code [base-commit] -- tests/</code> → <code>protegidos: 0</code>; progress.md has the final line with tokens and compactions from medir-sessao.py."
         }
       ]
     },
@@ -306,7 +306,7 @@
       "tipo": "gerador",
       "titulo": "Generate your plan with dates",
       "sub": "Pick a start date and how much time you have per week. The plan lists the 20 exercises in order.",
-      "curso": "Execução Longa",
+      "curso": "Long Run",
       "horas_padrao": 5,
       "degraus": [
         {
@@ -343,7 +343,7 @@
         }
       ],
       "txt": {
-        "titulo": "Plan — Execução Longa",
+        "titulo": "Plan — Long Run",
         "inicio": "Start",
         "ritmo": "Pace",
         "termino": "Expected finish",
@@ -449,7 +449,7 @@
       "links": [
         {
           "t": "Next course in the track: Multiagent and orchestration (course 3)",
-          "href": "https://inematds.github.io/loop-r-eng-multiagente-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-multiagente-v72/en/",
           "icone": "seta"
         },
         {

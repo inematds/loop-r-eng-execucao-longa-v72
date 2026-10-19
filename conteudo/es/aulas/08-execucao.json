@@ -306,7 +306,7 @@
       "tipo": "gerador",
       "titulo": "Genera tu plan con fechas",
       "sub": "Elige el inicio y cuánto tiempo tienes por semana. El plan lista los 20 ejercicios en orden.",
-      "curso": "Execução Longa",
+      "curso": "Ejecución larga",
       "horas_padrao": 5,
       "degraus": [
         {
@@ -343,7 +343,7 @@
         }
       ],
       "txt": {
-        "titulo": "Plan — Execução Longa",
+        "titulo": "Plan — Ejecución larga",
         "inicio": "Inicio",
         "ritmo": "Ritmo",
         "termino": "Término previsto",
@@ -449,7 +449,7 @@
       "links": [
         {
           "t": "Próximo curso de la formación: Multiagente y orquestación (curso 3)",
-          "href": "https://inematds.github.io/loop-r-eng-multiagente-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-multiagente-v72/es/",
           "icone": "seta"
         },
         {

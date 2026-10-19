@@ -9,7 +9,7 @@ Campos de texto aceitam <b>, <code>, <a> e <br>; o resto é escapado na origem (
 """
 import argparse, html, json, pathlib, re, sys
 
-VERSAO = "7.5.4"     # versão do motor (CHANGELOG.md da skill formato-curso-v72)
+VERSAO = "7.6.7"     # versão do motor (CHANGELOG.md da skill formato-curso-v72)
 RAIZ = pathlib.Path(__file__).resolve().parent
 PREFIXO = "../../"  # caminho até a raiz a partir da página em geração (v7.2: foto do "Você" no diagrama)
 FOTO_VOCE = "assets/img/voce.jpg"
@@ -145,7 +145,7 @@ def figura_rolagem(figura, passos, leg, ui, dica=True):
                   f'<h3>{p["titulo"]}</h3><p>{p["texto"]}</p></li>' for i, p in enumerate(passos))
     p0 = passos[0]
     nav = "".join(f'<button type="button" class="sc-ir" data-ir="{i}" title="{attr(re.sub("<[^>]+>", "", p["titulo"]))}">'
-                  f'<b>{i + 1}</b><span>{p.get("curto", p["titulo"])}</span></button>' for i, p in enumerate(passos))
+                  f'<b>{i + 1}</b><span>{re.sub(rf"^{i + 1}\s*·\s*", "", p.get("curto", p["titulo"]))}</span></button>' for i, p in enumerate(passos))
     cap = (f'<div class="sc-cap" aria-hidden="true"><span class="sc-n">1/{len(passos)}</span>'
            f'<h3>{p0["titulo"]}</h3><p>{p0["texto"]}</p></div>')
     return (f'<div class="scrolly dg-bloco"><div class="sc-fig"><div class="painel">{figura}'
@@ -227,10 +227,14 @@ def sec_pratica(s, ui, slug):
 
 def sec_video(s, ui, curso, prefixo):
     v = curso["videos"][s["chave"]]
+    # 7.6.7: versão do vídeo por idioma — videos.<chave>.idiomas.<lang>.{mp4, vtt}; sem ela, o vídeo PT com legenda PT
+    loc = v.get("idiomas", {}).get(LANG, {})
+    lg = LANG if loc.get("vtt") else "pt"
+    rot_leg = {"pt": "Português", "en": "English", "es": "Español"}.get(lg, lg)
     return (f'<div class="video"><video controls preload="metadata" playsinline poster="{ativo(prefixo)}{img_idioma(v["poster"])}">'
-            f'<source src="{v["mp4"]}" type="video/mp4"/>'
-            f'<track kind="subtitles" srclang="pt" label="Português" src="{ativo(prefixo)}{v["vtt"]}" default/></video>'
-            f'<div class="video-leg"><span><b>{v["titulo"]}</b> · {v["duracao"]}</span><a href="{v["pagina"]}" target="_blank" rel="noopener">{ui["video_pagina"]} →</a></div></div>')
+            f'<source src="{loc.get("mp4", v["mp4"])}" type="video/mp4"/>'
+            f'<track kind="subtitles" srclang="{lg}" label="{rot_leg}" src="{ativo(prefixo)}{loc.get("vtt", v["vtt"])}" default/></video>'
+            f'<div class="video-leg"><span><b>{v["titulo"]}</b> · {loc.get("duracao", v["duracao"])}</span><a href="{loc.get("pagina", v["pagina"])}" target="_blank" rel="noopener">{ui["video_pagina"]} →</a></div></div>')
 
 
 def sec_simfila(s, ui):
@@ -529,7 +533,10 @@ def pagina_inicio(curso, aulas, ui, lang):
     if p.get("cursos"):
         cs = p["cursos"]
         def href(c):
-            return c["href"] + (f"{LANG}/" if LANG != "pt" and c.get("href_idioma") else "")
+            # 7.8.12: idempotente — o traduzir.py 7.8.11 já grava <href><lang>/ em conteudo/<lang>/
+            if LANG == "pt" or not c.get("href_idioma") or c["href"].endswith(f"/{LANG}/"):
+                return c["href"]
+            return c["href"] + f"{LANG}/"
         cursos = (f'<section class="secao" id="cursos"><div class="sec-cab"><div><h2>{cs["titulo"]}</h2><p>{cs["sub"]}</p></div></div><ol class="ini-cursos">'
                   + "".join(f'<li><a class="ini-curso" href="{attr(href(c))}">'
                             f'<span class="ia-img"><img src="{ativo(prefixo)}{img_idioma(c["img"])}" alt="" loading="lazy" width="1400" height="788"/></span>'

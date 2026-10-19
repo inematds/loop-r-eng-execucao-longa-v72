@@ -2,7 +2,7 @@
   "id": "loop-r-eng-execucao-longa-v72",
   "lang": "en",
   "url": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/en/",
-  "nome": "Execução Longa",
+  "nome": "Long Run",
   "sub": "LOOP-R Engineering Track · course 2",
   "volta": {
     "t": "LOOP-R Engineering Track area",
@@ -10,7 +10,7 @@
   },
   "lado_card": {
     "rot": "This course's kit",
-    "t": "Execução Longa (open source)",
+    "t": "Long Run (open source)",
     "texto": "Templates, hook, headless loop, and measurement. Every command in the lessons comes from it, in the 10/18/2026 version.",
     "link": "Open the kit guide",
     "href": "https://inematds.github.io/execucao-longa/guia/"
@@ -18,7 +18,7 @@
   "rodape": "INEMA.CLUB · open and free content · INEMA Learning v7.2 format · LOOP-R Engineering Track, course 2 of 6 · <a href=\"https://eventos.inema.pro/loop-r-engenharia/\">eventos.inema.pro/loop-r-engenharia</a> · <a href=\"https://github.com/inematds/execucao-longa\">execucao-longa kit on GitHub</a> · <a href=\"https://inema.club/\">inema.club</a>",
   "videos": {
     "execucao-longa-pratica": {
-      "titulo": "Execução Longa in practice",
+      "titulo": "Long Run in practice",
       "duracao": "6 min 20 s",
       "mp4": "https://github.com/inematds/execucao-longa-pratica/releases/download/video-v2.0.0/execucao-longa-pratica-completo-16x9.mp4",
       "vtt": "assets/vtt/execucao-longa-pratica.vtt",

@@ -187,7 +187,7 @@
           "titulo": "E18 · Recall on your sessions",
           "min": "15 min",
           "texto": "Install the recall command, index, and look for a decision you remember making with the agent in the last week.",
-          "pronto": "<code>recall indexar</code> → <code>N arquivos processados</code> with N greater than 0, and <code>recall \"[termo]\" --desde [data]</code> returns the line with the file and the conversation line number."
+          "pronto": "<code>recall indexar</code> → <code>N arquivos processados</code> with N greater than 0, and <code>recall \"[term]\" --desde [date]</code> returns the line with the file and the conversation line number."
         }
       ]
     },
@@ -281,7 +281,7 @@
         },
         {
           "t": "Course 5 of the track: observability and cost per cycle in the loop that learns",
-          "href": "https://inematds.github.io/loop-r-eng-aprende-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-aprende-v72/en/",
           "icone": "camadas"
         }
       ]

@@ -187,7 +187,7 @@
           "titulo": "E18 · Recall en tus sesiones",
           "min": "15 min",
           "texto": "Instala el comando recall, indexa y busca una decisión que recuerdes haber tomado con el agente en la última semana.",
-          "pronto": "<code>recall indexar</code> → <code>N arquivos processados</code> con N mayor que 0, y <code>recall \"[termo]\" --desde [data]</code> devuelve la línea con el archivo y el número de la línea de la conversación."
+          "pronto": "<code>recall indexar</code> → <code>N arquivos processados</code> con N mayor que 0, y <code>recall \"[término]\" --desde [fecha]</code> devuelve la línea con el archivo y el número de la línea de la conversación."
         }
       ]
     },
@@ -281,7 +281,7 @@
         },
         {
           "t": "Curso 5 de la formación: observabilidad y costo por ciclo en el loop que aprende",
-          "href": "https://inematds.github.io/loop-r-eng-aprende-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-aprende-v72/es/",
           "icone": "camadas"
         }
       ]

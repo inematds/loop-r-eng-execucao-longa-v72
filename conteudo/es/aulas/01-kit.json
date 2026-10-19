@@ -19,7 +19,7 @@
     },
     {
       "icone": "pasta",
-      "t": "Crear longrun/[data]-[slug]/ con un comando"
+      "t": "Crear longrun/[fecha]-[slug]/ con un comando"
     },
     {
       "icone": "arquivo",
@@ -238,13 +238,13 @@
           "titulo": "E2 · La carpeta de una ejecución de verdad",
           "min": "10 min",
           "texto": "Elige una tarea real de un proyecto tuyo que lleve más de una hora y crea su carpeta. Ejecuta el mismo comando dos veces.",
-          "pronto": "<code>ls ~/projetos/[seu-projeto]/longrun/*/ | wc -l</code> → <code>7</code>; la segunda llamada imprime <code>já existe:</code> y <code>echo $?</code> → <code>1</code>."
+          "pronto": "<code>ls ~/projetos/[tu-proyecto]/longrun/*/ | wc -l</code> → <code>7</code>; la segunda llamada imprime <code>já existe:</code> y <code>echo $?</code> → <code>1</code>."
         },
         {
           "id": "e3",
           "titulo": "E3 · El método en las reglas globales",
           "min": "10 min",
-          "texto": "Pega el bloque de templates/AGENTS-long-run.md en ~/.claude/CLAUDE.md y en ~/.codex/AGENTS.md. Abre una sesión nueva y pregunta: \"¿cómo empiezas una ejecución larga?\"",
+          "texto": "Pega el bloque de templates/AGENTS-long-run.md en ~/.claude/CLAUDE.md y en ~/.codex/AGENTS.md. Abre una sesión nueva y pregunta: \"¿cómo empiezas una ejecución larga?\" El bloque también menciona /session-handoff, /prime y recall: solo existen a partir de las clases 5 y 7.",
           "pronto": "<code>grep -c novo-longrun.sh ~/.claude/CLAUDE.md</code> → <code>1</code> o más, y la sesión nueva responde citando novo-longrun.sh y criterio nivel 3 sin que tú se lo recuerdes."
         }
       ]
@@ -339,7 +339,7 @@
         },
         {
           "t": "Curso 0 de la formación: anatomía del loop y estado fuera del modelo",
-          "href": "https://inematds.github.io/loop-r-eng-base-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-base-v72/es/",
           "icone": "lista"
         },
         {

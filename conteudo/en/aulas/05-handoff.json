@@ -99,7 +99,7 @@
               "t": "latest.md = index of open items"
             }
           ],
-          "detalhe": "Creates handoffs/history/[AAAA-MM-DDTHHMMSSZ]-[assunto].md without ever overwriting, appends the state block (current commit and sha256 of the cited and dirty files), updates the index of open work, and commits only those files. Never pushes. If the agent writes the block by hand, the script discards it.",
+          "detalhe": "Creates handoffs/history/[AAAA-MM-DDTHHMMSSZ]-[subject].md without ever overwriting, appends the state block (current commit and sha256 of the cited and dirty files), updates the index of open work, and commits only those files. Never pushes. If the agent writes the block by hand, the script discards it.",
           "forte": true
         },
         {

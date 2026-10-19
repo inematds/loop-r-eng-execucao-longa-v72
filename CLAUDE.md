@@ -9,6 +9,9 @@ When I correct you, or you catch yourself making a mistake: before continuing, a
 
 ## Lessons
 
+- Saída de terminal com selo "real" só se capturada de verdade (scratchpad, kit de 18/10/2026); comportamento do kit vem do código (hook-longrun 1.9.6), não da prosa dos docs (19/10/2026).
+- Projeto de ensaio do loop-longrun.sh precisa de `.gitignore` com `__pycache__/`, senão o pytest cria arquivo em `tests/` e o ciclo bom conta como "mexeu em protegido" (19/10/2026).
+- One-liner longo em `<code>` no "pronto quando" transbordava 390 px; corrigido no motor 7.5.7 (`overflow-wrap:anywhere`). `<pre>` na aba de saída também (19/10/2026).
 - Placeholder com `<…>` só dentro de bloco `codigo`; em texto (passos, exemplo, falas) ele vira tag invisível e trava a tradução: use [colchetes] ou reescreva. O `validar.py` 7.5.3 acusa (19/10/2026).
 - Tradução para espanhol: "del" (e "set", "type") é prosa comum; detector de comando só aceita essas palavras seguidas de caminho, opção ou variável (19/10/2026).
 - simconversa: o placar máximo é o caminho de MAIOR soma, e um desvio (resposta "meio" que leva a uma fala extra) soma uma fala a mais; dê nota baixa à saída do desvio ou o placar máximo passa a premiar o desvio em vez da resposta direta. Some os caminhos à mão antes do portão (19/10/2026).

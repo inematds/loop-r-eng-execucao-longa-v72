@@ -257,11 +257,11 @@
           "p": "¿Cuál de estos archivos debe el agente REESCRIBIR en cada ciclo, en lugar de solo agregar?",
           "opcoes": [
             "progress.md",
+            "decisions.md",
             "failures.md",
-            "state.md",
-            "decisions.md"
+            "state.md"
           ],
-          "certa": 2,
+          "certa": 3,
           "explica": "state.md y plan.md son la fotografía del ahora y se reescriben. progress, failures y decisions son historial: solo se agregan, para poder ver después si el agente repitió un intento o reabrió un ítem.",
           "ref": "diagrama",
           "cert": true
@@ -269,22 +269,22 @@
         {
           "p": "El agente descubrió que la base de datos de prueba solo levanta con la variable DB_LOCAL=1. ¿Dónde va eso?",
           "opcoes": [
-            "En goal.md, como criterio nuevo",
-            "En canal.md, con fecha",
+            "En plan.md, que se reescribe",
             "En ningún lado: lo va a recordar",
-            "En plan.md, que se reescribe"
+            "En goal.md, como criterio nuevo",
+            "En canal.md, con fecha"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "Es conocimiento del proyecto que la compactación pierde: canal.md, una línea con fecha. En plan.md desaparece en la próxima reescritura; en goal.md cambiaría la tarea.",
           "ref": "diagrama"
         },
         {
           "p": "Después de una compactación, ¿qué es lo primero que hace el agente?",
           "opcoes": [
-            "Continúa desde el resumen, que ya tiene todo",
+            "Le pide al usuario que repita el pedido",
             "Relee goal → state → plan → canal y el final de progress y failures",
             "Escribe un goal.md nuevo",
-            "Le pide al usuario que repita el pedido"
+            "Continúa desde el resumen de la compactación, que ya trae el estado, las decisiones y los próximos pasos"
           ],
           "certa": 1,
           "explica": "El resumen mezcla lo confirmado con la suposición. Los archivos no. Por eso el kit manda releer la carpeta en orden y seguir desde el primer ítem pendiente.",
@@ -294,12 +294,12 @@
         {
           "p": "Ejecutaste novo-longrun.sh con un slug que ya existe hoy. ¿Qué pasa?",
           "opcoes": [
-            "Sobrescribe los archivos",
-            "Crea una carpeta con sufijo -2",
             "Se niega con \"já existe\" y sale con código 1",
-            "Borra la carpeta antigua"
+            "Crea una carpeta nueva con sufijo -2 y deja la antigua intacta",
+            "Borra la carpeta antigua",
+            "Sobrescribe los archivos"
           ],
-          "certa": 2,
+          "certa": 0,
           "explica": "El script se niega y no toca la carpeta existente. Una carpeta antigua es historial: usa otro slug.",
           "ref": "codigo"
         }

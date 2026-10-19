@@ -176,31 +176,31 @@
       "perguntas": [
         {
           "p": "Como o medir-sessao.py calcula o cache?",
-          "opcoes": ["saída ÷ entrada", "cache lido ÷ tokens de entrada", "compactações ÷ turnos", "bytes de ferramenta ÷ bytes do arquivo"],
-          "certa": 1,
+          "opcoes": ["saída ÷ entrada", "compactações ÷ turnos", "cache lido ÷ tokens de entrada", "bytes de ferramenta ÷ bytes do arquivo"],
+          "certa": 2,
           "explica": "cache_ratio = cached ÷ input. No Claude, input soma entrada + leitura + escrita do cache, e cached é a leitura.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "Por que a transcrição JSONL não serve como fonte do que foi decidido?",
-          "opcoes": ["Porque é criptografada", "Metade é saída de ferramenta, ela é apagada após o prazo e o Codex não lê a do Claude", "Porque o recall não lê", "Serve, é a melhor fonte"],
+          "opcoes": ["Porque é criptografada", "Metade é saída de ferramenta, ela é apagada após o prazo e o Codex não a lê", "Porque o recall não lê", "Serve: é o registro completo da conversa, e o recall indexa tudo de hora em hora"],
           "certa": 1,
           "explica": "Decisão vai para arquivo do projeto (handoff, decisions.md, CLAUDE.md). A transcrição serve para medir e para o recall achar onde procurar.",
           "ref": "diagrama"
         },
         {
           "p": "O que o custo-retomada.py compara?",
-          "opcoes": ["Claude × Codex", "Reenviar numa sessão grande com cache vencido × começar sessão nova com /prime", "Opus × Sonnet", "Compactar × não compactar"],
-          "certa": 1,
+          "opcoes": ["Compactar × não compactar", "Opus × Sonnet", "Reenviar numa sessão grande com cache vencido × começar sessão nova com /prime", "Claude × Codex"],
+          "certa": 2,
           "explica": "(A) primeira chamada depois de > 60 min parado com ≥ 150 mil × (B) sessão que começa com /prime, em tokens-equivalentes ao preço de entrada.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "Sua sessão mostra saída de ferramenta enorme. O que isso indica?",
-          "opcoes": ["Que o arquivo vai travar o Claude", "Que o agente provavelmente lê logs e saídas inteiras; peça trechos (tail) e grave log em arquivo", "Que o cache caiu", "Nada"],
-          "certa": 1,
+          "opcoes": ["Que o arquivo vai travar o Claude", "Nada", "Que o cache caiu", "Que o agente provavelmente lê logs e saídas inteiras; peça trechos (tail) e grave log em arquivo"],
+          "certa": 3,
           "explica": "O tamanho do arquivo não trava nada; o contexto ativo é que pesa. Saída curta de ferramenta é um dos tetos de toda execução longa.",
           "ref": "passos"
         }

@@ -197,12 +197,12 @@
         {
           "p": "El criterio es \"pytest -q → 0 falhas\". ¿Qué trampa deja pasar?",
           "opcoes": [
-            "Ninguna: 0 fallas es prueba suficiente",
             "Borrar las pruebas que fallan",
+            "Ninguna: 0 fallas es prueba suficiente",
             "Ejecutar pytest dos veces",
             "Usar otro modelo"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Sin conteo mínimo y sin congelar tests/, borrar la prueba que falla da 0 fallas. El nivel 3 suma \"≥ N testes\" y \"git diff --exit-code -- tests/ → 0\".",
           "ref": "diagrama",
           "cert": true
@@ -210,12 +210,12 @@
         {
           "p": "En el /goal de Claude Code, ¿por qué la condición tiene que aparecer en la salida?",
           "opcoes": [
-            "Porque el evaluador vuelve a ejecutar los comandos",
-            "Porque el evaluador solo lee la conversación, sin ejecutar comandos ni abrir archivos",
             "Porque Codex lo exige",
-            "No hace falta: el evaluador lee el state.md"
+            "No hace falta: el evaluador lee el state.md",
+            "Porque el evaluador solo lee la conversación, sin ejecutar comandos ni abrir archivos",
+            "Porque el evaluador vuelve a ejecutar los comandos citados y compara la salida con el criterio"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "La documentación de /goal dice que el evaluador juzga solo lo que está en la conversación. Por eso la condición es algo que el agente imprime, como la salida de la prueba.",
           "ref": "diagrama",
           "cert": true
@@ -223,24 +223,24 @@
         {
           "p": "Antes de cualquier trabajo, ejecutaste el criterio de función y ya pasó. ¿Qué indica eso?",
           "opcoes": [
-            "Que la tarea es fácil",
             "Que el criterio no mide la tarea y hay que reescribirlo",
             "Que el agente va a terminar en 1 ciclo",
-            "Nada: es lo esperado"
+            "Que la tarea es fácil",
+            "Nada: el criterio de función debe pasar desde el inicio, igual que el de límite"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Un criterio de función que pasa antes del trabajo no distingue lo hecho de lo no hecho. El de límite, al contrario, debe pasar desde el inicio.",
           "ref": "pratica"
         },
         {
           "p": "¿Qué capa responde \"no tocó donde no debía y no gastó lo que no debía\"?",
           "opcoes": [
-            "Función",
             "Regresión",
             "Límite",
-            "Prueba rápida"
+            "Prueba rápida",
+            "Función"
           ],
-          "certa": 2,
+          "certa": 1,
           "explica": "Límite: archivos congelados, carpetas fuera del alcance y gasto prohibido. Es la que cierra el atajo de tocar el propio juez.",
           "ref": "diagrama"
         }

@@ -257,11 +257,11 @@
           "p": "Which of these files should the agent REWRITE each cycle, instead of only appending to?",
           "opcoes": [
             "progress.md",
+            "decisions.md",
             "failures.md",
-            "state.md",
-            "decisions.md"
+            "state.md"
           ],
-          "certa": 2,
+          "certa": 3,
           "explica": "state.md and plan.md are a snapshot of right now and get rewritten. progress, failures and decisions are history: they only get appended to, so you can later see whether the agent repeated an attempt or reopened an item.",
           "ref": "diagrama",
           "cert": true
@@ -269,22 +269,22 @@
         {
           "p": "The agent found out that the test database only starts with the variable DB_LOCAL=1. Where does this go?",
           "opcoes": [
-            "In goal.md, as a new criterion",
-            "In canal.md, with a date",
+            "In plan.md, which gets rewritten",
             "Nowhere: it will remember",
-            "In plan.md, which gets rewritten"
+            "In goal.md, as a new criterion",
+            "In canal.md, with a date"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "It is project knowledge that compaction loses: canal.md, one line with a date. In plan.md it disappears at the next rewrite; in goal.md it would change the task.",
           "ref": "diagrama"
         },
         {
           "p": "After a compaction, what is the first thing the agent does?",
           "opcoes": [
-            "Continues from the summary, which already has everything",
+            "Asks the user to repeat the request",
             "Rereads goal → state → plan → canal and the end of progress and failures",
             "Writes a new goal.md",
-            "Asks the user to repeat the request"
+            "Continues from the compaction summary, which already carries the state, the decisions and the next steps"
           ],
           "certa": 1,
           "explica": "The summary mixes what is confirmed with guesses. The files don't. That is why the kit tells you to reread the folder in order and continue from the first pending item.",
@@ -294,12 +294,12 @@
         {
           "p": "You ran novo-longrun.sh with a slug that already exists today. What happens?",
           "opcoes": [
-            "It overwrites the files",
-            "It creates a folder with a -2 suffix",
             "It refuses with \"já existe\" and exits with code 1",
-            "It deletes the old folder"
+            "Creates a new folder with a -2 suffix and leaves the old one intact",
+            "It deletes the old folder",
+            "It overwrites the files"
           ],
-          "certa": 2,
+          "certa": 0,
           "explica": "The script refuses and doesn't touch the existing folder. An old folder is history: use another slug.",
           "ref": "codigo"
         }

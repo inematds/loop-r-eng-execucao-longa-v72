@@ -199,11 +199,11 @@
           "p": "¿Cómo calcula medir-sessao.py la caché?",
           "opcoes": [
             "salida ÷ entrada",
-            "caché leída ÷ tokens de entrada",
             "compactaciones ÷ turnos",
+            "caché leída ÷ tokens de entrada",
             "bytes de herramienta ÷ bytes del archivo"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "cache_ratio = cached ÷ input. En Claude, input suma entrada + lectura + escritura del caché, y cached es la lectura.",
           "ref": "diagrama",
           "cert": true
@@ -212,9 +212,9 @@
           "p": "¿Por qué la transcripción JSONL no sirve como fuente de lo que se decidió?",
           "opcoes": [
             "Porque está cifrada",
-            "La mitad es salida de herramienta, se borra después del plazo y Codex no lee la de Claude",
+            "La mitad es salida de herramientas, se borra tras el plazo y Codex no la lee",
             "Porque recall no la lee",
-            "Sirve, es la mejor fuente"
+            "Sirve: es el registro completo de la conversación, y el recall lo indexa todo cada hora"
           ],
           "certa": 1,
           "explica": "La decisión va a un archivo del proyecto (handoff, decisions.md, CLAUDE.md). La transcripción sirve para medir y para que recall encuentre dónde buscar.",
@@ -223,12 +223,12 @@
         {
           "p": "¿Qué compara custo-retomada.py?",
           "opcoes": [
-            "Claude × Codex",
-            "Reenviar en una sesión grande con caché vencida × empezar una sesión nueva con /prime",
+            "Compactar × no compactar",
             "Opus × Sonnet",
-            "Compactar × no compactar"
+            "Reenviar en una sesión grande con caché vencida × empezar una sesión nueva con /prime",
+            "Claude × Codex"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "(A) primera llamada después de > 60 min parado con ≥ 150 mil × (B) sesión que empieza con /prime, en tokens equivalentes al precio de entrada.",
           "ref": "diagrama",
           "cert": true
@@ -237,11 +237,11 @@
           "p": "Tu sesión muestra una salida de herramienta enorme. ¿Qué indica eso?",
           "opcoes": [
             "Que el archivo va a trabar a Claude",
-            "Que el agente probablemente lee logs y salidas completas; pide fragmentos (tail) y guarda el log en un archivo",
+            "Nada",
             "Que el caché cayó",
-            "Nada"
+            "Que el agente probablemente lee logs y salidas completas; pide fragmentos (tail) y guarda el log en un archivo"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "El tamaño del archivo no traba nada; lo que pesa es el contexto activo. La salida corta de herramienta es uno de los topes de toda ejecución larga.",
           "ref": "passos"
         }

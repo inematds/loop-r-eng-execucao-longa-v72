@@ -153,31 +153,31 @@
       "perguntas": [
         {
           "p": "O critério é \"pytest -q → 0 falhas\". Qual trapaça ele deixa passar?",
-          "opcoes": ["Nenhuma: 0 falhas é prova suficiente", "Apagar os testes que falham", "Rodar o pytest duas vezes", "Usar outro modelo"],
-          "certa": 1,
+          "opcoes": ["Apagar os testes que falham", "Nenhuma: 0 falhas é prova suficiente", "Rodar o pytest duas vezes", "Usar outro modelo"],
+          "certa": 0,
           "explica": "Sem contagem mínima e sem congelar tests/, apagar o teste que falha dá 0 falhas. Nível 3 soma \"≥ N testes\" e \"git diff --exit-code -- tests/ → 0\".",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "No /goal do Claude Code, por que a condição tem de aparecer na saída?",
-          "opcoes": ["Porque o avaliador roda os comandos de novo", "Porque o avaliador só lê a conversa, sem rodar comando nem abrir arquivo", "Porque o Codex exige", "Não precisa: o avaliador lê o state.md"],
-          "certa": 1,
+          "opcoes": ["Porque o Codex exige", "Não precisa: o avaliador lê o state.md", "Porque o avaliador só lê a conversa, sem rodar comando nem abrir arquivo", "Porque o avaliador roda de novo os comandos citados e compara a saída com o critério"],
+          "certa": 2,
           "explica": "A doc do /goal diz que o avaliador julga só o que está na conversa. Por isso a condição é algo que o agente imprime, como a saída do teste.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "Antes de qualquer trabalho, você rodou o critério de função e ele já passou. O que isso indica?",
-          "opcoes": ["Que a tarefa é fácil", "Que o critério não mede a tarefa e precisa ser reescrito", "Que o agente vai terminar em 1 ciclo", "Nada: é esperado"],
-          "certa": 1,
+          "opcoes": ["Que o critério não mede a tarefa e precisa ser reescrito", "Que o agente vai terminar em 1 ciclo", "Que a tarefa é fácil", "Nada: critério de função tem de passar desde o início, como o de limite"],
+          "certa": 0,
           "explica": "Critério de função que passa antes do trabalho não distingue feito de não feito. O de limite, ao contrário, deve passar desde o início.",
           "ref": "pratica"
         },
         {
           "p": "Qual camada responde \"não mexeu onde não devia e não gastou o que não devia\"?",
-          "opcoes": ["Função", "Regressão", "Limite", "Teste rápido"],
-          "certa": 2,
+          "opcoes": ["Regressão", "Limite", "Teste rápido", "Função"],
+          "certa": 1,
           "explica": "Limite: arquivos congelados, pastas fora do escopo e gasto proibido. É a que fecha o atalho de mexer no próprio juiz.",
           "ref": "diagrama"
         }

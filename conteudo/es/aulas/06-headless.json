@@ -247,9 +247,9 @@
         {
           "p": "En el loop headless, ¿quién decide que la ejecución terminó?",
           "opcoes": [
-            "El agente, escribiendo \"concluído\"",
+            "Un evaluador que lee la conversación y verifica si apareció la condición",
             "El TESTE_FINAL ejecutado por el propio loop",
-            "Un evaluador leyendo la conversación",
+            "El agente, escribiendo \"concluído\"",
             "El MAX_CICLOS"
           ],
           "certa": 1,
@@ -260,12 +260,12 @@
         {
           "p": "El agente borró una prueba que fallaba. ¿Qué hace el loop?",
           "opcoes": [
-            "Lo acepta, porque las pruebas pasan",
-            "Revierte los protegidos, cuenta el ciclo como fallido y lo registra en failures.md",
-            "Se detiene en el acto con código 1",
-            "Pide confirmación"
+            "Revierte los archivos protegidos, cuenta el ciclo como fallido y lo anota en failures.md",
+            "Pide confirmación",
+            "Se detiene al instante con código 1 y deja el test borrado en el disco para que lo revises",
+            "Lo acepta, porque las pruebas pasan"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "git checkout + git clean sobre los PROTEGIDOS, ciclo fallido y una línea en failures.md. Tres así seguidos dan PARADO por estancamiento (salida 2).",
           "ref": "diagrama",
           "cert": true
@@ -273,22 +273,22 @@
         {
           "p": "El loop salió con código 3. ¿Qué pasó?",
           "opcoes": [
-            "Estancamiento",
-            "Tope de ciclos",
             "Otro loop ya corre en la misma carpeta (flock)",
-            "La prueba final pasó"
+            "Alcanzó el tope de ciclos (MAX_CICLOS) sin que el test final pasara",
+            "La prueba final pasó",
+            "Estancamiento"
           ],
-          "certa": 2,
+          "certa": 0,
           "explica": "0 terminado, 1 tope de ciclos, 2 estancamiento, 3 lock ocupado. Es el código que miran el cron o systemd.",
           "ref": "diagrama"
         },
         {
           "p": "Al agente bueno lo marcaron como \"tocó un archivo protegido\". ¿Causa más probable?",
           "opcoes": [
-            "El modelo se equivocó",
-            "__pycache__ creado por pytest dentro de tests/ sin estar en .gitignore",
             "Falta de memoria",
-            "El flock"
+            "__pycache__ creado por pytest dentro de tests/, fuera del .gitignore",
+            "El flock",
+            "El modelo se equivocó y escribió en tests/ por error; cámbialo por un modelo más grande"
           ],
           "certa": 1,
           "explica": "El loop considera un archivo no rastreado en una carpeta protegida como un cambio. Pon __pycache__/ en el .gitignore y revisa git status --short tests/ después de correr las pruebas.",
@@ -297,12 +297,12 @@
         {
           "p": "¿Para qué sirve el MemoryMax por ciclo?",
           "opcoes": [
-            "Acelerar al agente",
-            "Evitar que un ciclo consuma la memoria de la máquina y trabe el host antes del OOM-killer",
-            "Limitar tokens",
-            "Guardar la caché"
+            "Limitar los tokens que el agente gasta en cada ciclo, para que la cuenta no se dispare",
+            "Guardar la caché",
+            "Evitar que un ciclo agote la memoria y trabe el host antes del OOM-killer",
+            "Acelerar al agente"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "systemd-run --user --scope -p MemoryMax pone un tope al cgroup del ciclo. Con memoria unificada, el thrashing traba todo antes de que el OOM-killer actúe.",
           "ref": "diagrama"
         }

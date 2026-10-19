@@ -203,22 +203,22 @@
       "perguntas": [
         {
           "p": "Qual destes arquivos o agente deve REESCREVER a cada ciclo, em vez de só acrescentar?",
-          "opcoes": ["progress.md", "failures.md", "state.md", "decisions.md"],
-          "certa": 2,
+          "opcoes": ["progress.md", "decisions.md", "failures.md", "state.md"],
+          "certa": 3,
           "explica": "state.md e plan.md são a fotografia do agora e são reescritos. progress, failures e decisions são histórico: só acrescentam, para dar para ver depois se o agente repetiu tentativa ou reabriu item.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "O agente descobriu que o banco de teste só sobe com a variável DB_LOCAL=1. Onde isso vai?",
-          "opcoes": ["No goal.md, como critério novo", "No canal.md, com data", "Em lugar nenhum: ele vai lembrar", "No plan.md, que é reescrito"],
-          "certa": 1,
+          "opcoes": ["No plan.md, que é reescrito", "Em lugar nenhum: ele vai lembrar", "No goal.md, como critério novo", "No canal.md, com data"],
+          "certa": 3,
           "explica": "É conhecimento do projeto que a compactação perde: canal.md, uma linha com data. No plan.md ele some na próxima reescrita; no goal.md mudaria a tarefa.",
           "ref": "diagrama"
         },
         {
           "p": "Depois de uma compactação, qual é a primeira coisa que o agente faz?",
-          "opcoes": ["Continua do resumo, que já tem tudo", "Relê goal → state → plan → canal e o fim de progress e failures", "Grava um goal.md novo", "Pede ao usuário para repetir o pedido"],
+          "opcoes": ["Pede ao usuário para repetir o pedido", "Relê goal → state → plan → canal e o fim de progress e failures", "Grava um goal.md novo", "Continua do resumo da compactação, que já traz o estado, as decisões e os próximos passos"],
           "certa": 1,
           "explica": "O resumo mistura o confirmado com o palpite. Os arquivos não. Por isso o kit manda reler a pasta na ordem e seguir do primeiro item pendente.",
           "ref": "passos",
@@ -226,8 +226,8 @@
         },
         {
           "p": "Você rodou novo-longrun.sh com um slug que já existe hoje. O que acontece?",
-          "opcoes": ["Sobrescreve os arquivos", "Cria uma pasta com sufixo -2", "Recusa com \"já existe\" e sai com código 1", "Apaga a pasta antiga"],
-          "certa": 2,
+          "opcoes": ["Recusa com \"já existe\" e sai com código 1", "Cria uma pasta nova com sufixo -2 e deixa a antiga intacta", "Apaga a pasta antiga", "Sobrescreve os arquivos"],
+          "certa": 0,
           "explica": "O script recusa e não toca na pasta existente. Pasta antiga é histórico: use outro slug.",
           "ref": "codigo"
         }

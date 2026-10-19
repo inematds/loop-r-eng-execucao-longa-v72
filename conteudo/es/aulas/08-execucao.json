@@ -376,12 +376,12 @@
         {
           "p": "El state.md dice concluído. ¿Qué falta?",
           "opcoes": [
-            "Nada: el agente lo garantizó",
             "Tú ejecutas la prueba final, revisas los protegidos, buscas valores fijos y mides",
             "Abrir un PR",
+            "Nada: el agente lo garantizó",
             "Borrar la carpeta longrun/"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Verificación independiente: la prueba ejecutada por ti, git diff de los protegidos, búsqueda de valores fijos y una entrada nunca vista. Después, medir y registrar.",
           "ref": "diagrama",
           "cert": true
@@ -389,9 +389,9 @@
         {
           "p": "¿Cuál de estos NO es motivo del kit para parar y llamar al humano?",
           "opcoes": [
-            "3 ciclos sin avance medible",
-            "Elemento ya hecho reabierto",
             "El agente pidió usar una API de pago",
+            "Elemento ya hecho reabierto",
+            "3 ciclos sin avance medible",
             "La prueba rápida subió de 10 a 12 passed"
           ],
           "certa": 3,
@@ -401,12 +401,12 @@
         {
           "p": "Franja 2 de contexto: ¿qué pide el hook?",
           "opcoes": [
+            "Borrar el canal.md",
             "Abrir una sesión nueva de inmediato",
             "Actualizar state/progress/canal, terminar la unidad, grabar el handoff y avisar que es hora de /compact",
-            "Borrar el canal.md",
             "Nada"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "~70% del punto de compactación. La franja 1 es el canal; la 3 es no abrir trabajo nuevo y sesión nueva al final de la unidad.",
           "ref": "mapa"
         },
@@ -414,11 +414,11 @@
           "p": "Sesión detenida hace 2 h, 300 mil tokens, handoff de esta sesión grabado a los 45 min. Al volver, lo más barato de ahí en adelante es...",
           "opcoes": [
             "Reenviar y seguir",
-            "/clear y /prime con el handoff de esta sesión",
+            "Ejecutar /compact",
             "Esperar a que vuelva la caché",
-            "Ejecutar /compact"
+            "/clear y /prime con el handoff de esta sesión"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "Con el camino en un archivo, empezar limpio cuesta ~10 mil por turno contra ~23 mil reenviando (medido hasta el 17/10/2026).",
           "ref": "mapa",
           "cert": true

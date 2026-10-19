@@ -222,12 +222,12 @@
         {
           "p": "¿Quién escribe el bloque de estado (commit y sha256) del handoff?",
           "opcoes": [
-            "El agente, al final del texto",
+            "Nadie: es opcional",
+            "El agente, al final del texto del handoff, para que el siguiente verifique el commit",
             "El handoff-grava.py; si el agente lo escribe, el script lo descarta",
-            "El hook, después de compactar",
-            "Nadie: es opcional"
+            "El hook, después de compactar"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "La prueba salió del texto justamente porque el agente se autocertifica. El script graba el bloque y es con él que el --conferir compara.",
           "ref": "diagrama",
           "cert": true
@@ -235,10 +235,10 @@
         {
           "p": "--conferir salió con código 2. ¿Qué significa?",
           "opcoes": [
-            "El handoff está corrupto",
-            "Algo citado o pendiente cambió desde que se grabó: el handoff es una pista, no un hecho",
-            "Faltan las preguntas de prueba",
-            "Todo igual"
+            "Todo igual",
+            "Algo citado o pendiente cambió desde la grabación: es una pista, no un hecho",
+            "El handoff está corrupto y debe grabarse de nuevo antes de cualquier acción",
+            "Faltan las preguntas de prueba"
           ],
           "certa": 1,
           "explica": "0 = igual, 2 = divergente (con la lista de lo que cambió), 3 = snapshot antiguo sin bloque. Divergente pide comprobar antes de actuar.",
@@ -248,24 +248,24 @@
         {
           "p": "El hook pidió un handoff y, en 8 eventos, no apareció nada en handoffs/history/. ¿Qué pasa?",
           "opcoes": [
-            "Lo graba solo en el momento",
-            "Vuelve a cobrar, hasta 2 veces, y después te avisa que el handoff NO fue grabado",
             "Bloquea la sesión",
+            "Él mismo graba el handoff al instante, en una copia de la sesión, sin que tengas que pedirlo",
+            "Vuelve a cobrar, hasta 2 veces, y después avisa que el handoff NO fue grabado",
             "Nada"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "La comprobación mira la transcripción: si lo encontró, \"Handoff conferido\"; si no, cobra hasta 2 veces y luego avisa. Grabar solo ocurre únicamente en la inactividad, sobre una copia de la sesión.",
           "ref": "diagrama"
         },
         {
           "p": "\"Corremos las pruebas de integración solo con --fast en esta máquina\" vale para siempre en este proyecto. ¿Dónde va?",
           "opcoes": [
-            "En el handoff",
             "En la memoria persistente (CLAUDE.md o AGENTS.md)",
             "En progress.md",
+            "En el handoff, que el /prime lee al comienzo de toda sesión",
             "En ningún lugar"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Sigue siendo verdad después de la tarea: memoria persistente. El handoff guarda el estado de esta tarea; el historial registra lo que pasó.",
           "ref": "diagrama"
         }

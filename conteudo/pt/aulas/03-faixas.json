@@ -161,30 +161,30 @@
       "perguntas": [
         {
           "p": "Num modelo de 1M, em quantos tokens o hook avisa a faixa 2 por padrão?",
-          "opcoes": ["~157 mil", "~500 mil", "~677 mil (70% de ~967 mil)", "~1 milhão"],
-          "certa": 2,
+          "opcoes": ["~700 mil (70% da janela de 1 milhão)", "~677 mil (70% de ~967 mil)", "~157 mil", "~1 milhão"],
+          "certa": 1,
           "explica": "A conta é sobre o ponto de compactação por tamanho (~967 mil), não sobre a janela. As faixas 112/157/191 mil eram do hook 1.2.x, que usava o teto errado de 225 mil e disparava no meio do trabalho.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "A faixa 3 disparou no meio de uma refatoração. O que o agente deve fazer?",
-          "opcoes": ["Largar a refatoração e pedir /clear na hora", "Terminar a unidade em curso sem abrir trabalho novo e pedir handoff + sessão nova ao fim dela", "Ignorar: é só aviso", "Apagar o canal.md para liberar contexto"],
-          "certa": 1,
+          "opcoes": ["Fechar a unidade em curso sem abrir trabalho novo; no fim dela, handoff + sessão nova", "Ignorar: é só aviso", "Apagar o canal.md para liberar contexto", "Largar a refatoração na hora, gravar o handoff e pedir /clear para abrir uma sessão nova limpa"],
+          "certa": 0,
           "explica": "Desde o 1.4.1 a faixa 3 e a 3ª compactação não mandam largar no meio: a sessão nova custa mais leitura (80% dos primeiros 25 passos), então ela vem ao fim da unidade.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "Dentro da mesma sessão, o que guarda mais detalhe concreto (arquivos, passos)?",
-          "opcoes": ["O handoff", "O resumo da compactação", "O canal.md", "O goal.md"],
-          "certa": 1,
+          "opcoes": ["O resumo da compactação", "O canal.md", "O handoff, que separa provado de palpite", "O goal.md"],
+          "certa": 0,
           "explica": "Medido em 15/10: o resumo cita 20–54 arquivos; o handoff, 1–27. O handoff ganha em separar provado de palpite, nas decisões e em sobreviver a /clear. Por isso os dois juntos.",
           "ref": "passos"
         },
         {
           "p": "Você usa o Codex. Como segue as faixas?",
-          "opcoes": ["O hook-longrun funciona igual", "Acompanha o % em /status e segue a regra do AGENTS.md, com /compact manual antes dos 90%", "Não precisa: o Codex nunca compacta", "Configurando o compact_prompt, que vale sempre"],
+          "opcoes": ["O hook-longrun funciona igual", "Olha o % em /status e segue a regra do AGENTS.md, com /compact manual antes dos 90%", "Configurando o compact_prompt no config.toml, que o Codex aplica em toda compactação automática", "Não precisa: o Codex nunca compacta"],
           "certa": 1,
           "explica": "O Codex não tem hook de compactação nem contador. A regra escrita e você fazem o papel do hook; e a compactação automática dele ignora o compact_prompt com modelo da OpenAI.",
           "ref": "codigo"

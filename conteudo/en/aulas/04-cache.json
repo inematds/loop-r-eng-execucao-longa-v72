@@ -190,12 +190,12 @@
         {
           "p": "Why does the hook write the handoff on idle time at 45 min, and not at 58?",
           "opcoes": [
-            "Because at 45 the cache has already expired",
-            "To get there before the idle-time compaction (53–58 min) and the end of the cache, with room for the copy to run",
+            "Because at 45 min the cache has already expired and the copy has to run before the automatic compaction",
+            "To interrupt whoever is working",
             "Because Claude Code requires 45",
-            "To interrupt whoever is working"
+            "To land before the idle-time compaction and the end of the cache, leaving room for the copy"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "Writing with a warm cache costs one cheap read. At 50 the copy may arrive after the summary or go past the 55 min cache limit. Whoever is working is not interrupted: the copy runs separately.",
           "ref": "diagrama",
           "cert": true
@@ -203,12 +203,12 @@
         {
           "p": "In the October measurements, the cache of long sessions...",
           "opcoes": [
-            "dropped at each compaction",
-            "stayed between 93% and 99% and did not get worse with compactions",
+            "dropped a little with each compaction, because the new summary invalidates the prefix",
+            "only exists in Codex",
             "stayed below 50%",
-            "only exists in Codex"
+            "stayed between 93% and 99% and did not get worse with compactions"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "93–99% in every long session measured. What grows without compaction is the cost per turn (~5× in the last tenth), not the loss of cache.",
           "ref": "passos",
           "cert": true
@@ -216,24 +216,24 @@
         {
           "p": "Session idle for 3 h, 300k tokens, all decisions already in this session's handoff. What to do on return?",
           "opcoes": [
-            "Resend: it is always cheaper",
-            "/clear and /prime with this session's handoff",
+            "Wait one more hour",
             "Delete the handoff",
-            "Wait one more hour"
+            "/clear and /prime with this session's handoff",
+            "Resend the message: with 300k tokens already loaded, it's always the cheapest"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "With the path in a file, starting clean costs less from then on (~10k × ~23k per turn, measured through 10/17). Resending only pays off if something lived only in the conversation.",
           "ref": "passos"
         },
         {
           "p": "The pause gate blocked your message. You want to continue in this session. What to do?",
           "opcoes": [
+            "Run /compact first, so the session fits in the cache and the gate lifts",
             "Turn off the hook",
-            "Resend the same message: the block applies once per pause",
             "Wait for the cache to come back",
-            "Run /compact first"
+            "Resend the same message: the block applies once per pause"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "The block is a question, not an error: it applies once per pause and is saved in the session state. Resending goes straight through.",
           "ref": "codigo"
         }

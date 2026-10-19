@@ -376,12 +376,12 @@
         {
           "p": "The state.md says done. What's missing?",
           "opcoes": [
-            "Nothing: the agent guaranteed it",
             "You run the final test, check the protected files, search for hardcoded values, and measure",
             "Open a PR",
+            "Nothing: the agent guaranteed it",
             "Delete the longrun/ folder"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Independent verification: the test run by you, git diff of the protected files, a search for hardcoded values, and an input never seen before. Then measure and record.",
           "ref": "diagrama",
           "cert": true
@@ -389,9 +389,9 @@
         {
           "p": "Which of these is NOT a reason for the kit to stop and call the human?",
           "opcoes": [
-            "3 cycles without measurable progress",
-            "A finished item reopened",
             "The agent asked to use a paid API",
+            "A finished item reopened",
+            "3 cycles without measurable progress",
             "The quick test went from 10 to 12 passed"
           ],
           "certa": 3,
@@ -401,12 +401,12 @@
         {
           "p": "Context band 2: what does the hook ask for?",
           "opcoes": [
+            "Delete canal.md",
             "Open a new session right away",
             "Update state/progress/canal, finish the unit, write the handoff, and say it's time for /compact",
-            "Delete canal.md",
             "Nothing"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "~70% of the compaction point. Band 1 is the canal; band 3 is no new work and a new session at the end of the unit.",
           "ref": "mapa"
         },
@@ -414,11 +414,11 @@
           "p": "Session idle for 2 h, 300k tokens, this session's handoff written at 45 min. When you come back, the cheapest option from there is...",
           "opcoes": [
             "Resend and keep going",
-            "/clear and /prime with this session's handoff",
+            "Run /compact",
             "Wait for the cache to come back",
-            "Run /compact"
+            "/clear and /prime with this session's handoff"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "With the path in a file, starting clean costs ~10k per turn versus ~23k when resending (measured up to 10/17/2026).",
           "ref": "mapa",
           "cert": true

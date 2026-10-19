@@ -287,30 +287,30 @@
         },
         {
           "p": "O state.md diz concluído. O que falta?",
-          "opcoes": ["Nada: o agente garantiu", "Você rodar o teste final, conferir os protegidos, procurar valor fixo e medir", "Abrir um PR", "Apagar a pasta longrun/"],
-          "certa": 1,
+          "opcoes": ["Você rodar o teste final, conferir os protegidos, procurar valor fixo e medir", "Abrir um PR", "Nada: o agente garantiu", "Apagar a pasta longrun/"],
+          "certa": 0,
           "explica": "Verificação independente: o teste rodado por você, git diff dos protegidos, busca por valor fixo e uma entrada nunca vista. Depois, medir e registrar.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "Qual destes NÃO é motivo do kit para parar e chamar o humano?",
-          "opcoes": ["3 ciclos sem avanço mensurável", "Item já feito reaberto", "O agente pediu para usar uma API paga", "O teste rápido subiu de 10 para 12 passed"],
+          "opcoes": ["O agente pediu para usar uma API paga", "Item já feito reaberto", "3 ciclos sem avanço mensurável", "O teste rápido subiu de 10 para 12 passed"],
           "certa": 3,
           "explica": "Subir o número de testes passando é avanço mensurável: o loop segue. Os outros três estão na lista de parada.",
           "ref": "simconversa"
         },
         {
           "p": "Faixa 2 de contexto: o que o hook pede?",
-          "opcoes": ["Abrir sessão nova na hora", "Atualizar state/progress/canal, terminar a unidade, gravar o handoff e avisar que é hora de /compact", "Apagar o canal.md", "Nada"],
-          "certa": 1,
+          "opcoes": ["Apagar o canal.md", "Abrir sessão nova na hora", "Atualizar state/progress/canal, terminar a unidade, gravar o handoff e avisar que é hora de /compact", "Nada"],
+          "certa": 2,
           "explica": "~70% do ponto de compactação. A faixa 1 é o canal; a 3 é não abrir trabalho novo e sessão nova ao fim da unidade.",
           "ref": "mapa"
         },
         {
           "p": "Sessão parada há 2 h, 300 mil tokens, handoff desta sessão gravado aos 45 min. Na volta, o mais barato daí em diante é...",
-          "opcoes": ["Reenviar e seguir", "/clear e /prime com o handoff desta sessão", "Esperar o cache voltar", "Rodar /compact"],
-          "certa": 1,
+          "opcoes": ["Reenviar e seguir", "Rodar /compact", "Esperar o cache voltar", "/clear e /prime com o handoff desta sessão"],
+          "certa": 3,
           "explica": "Com o caminho em arquivo, recomeçar limpo custa ~10 mil por turno contra ~23 mil reenviando (medido até 17/10/2026).",
           "ref": "mapa",
           "cert": true

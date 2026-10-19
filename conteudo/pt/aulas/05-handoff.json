@@ -176,15 +176,15 @@
       "perguntas": [
         {
           "p": "Quem escreve o bloco de estado (commit e sha256) do handoff?",
-          "opcoes": ["O agente, no fim do texto", "O handoff-grava.py; se o agente escrever, o script descarta", "O hook, depois de compactar", "Ninguém: é opcional"],
-          "certa": 1,
+          "opcoes": ["Ninguém: é opcional", "O agente, no fim do texto do handoff, para o próximo conferir o commit", "O handoff-grava.py; se o agente escrever, o script descarta", "O hook, depois de compactar"],
+          "certa": 2,
           "explica": "A prova saiu do texto justamente porque o agente se autocertifica. O script grava o bloco e é ele que o --conferir compara.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "--conferir saiu com código 2. O que isso quer dizer?",
-          "opcoes": ["O handoff está corrompido", "Algo citado ou pendente mudou desde a gravação: o handoff é pista, não fato", "Faltam as perguntas-teste", "Tudo igual"],
+          "opcoes": ["Tudo igual", "Algo citado ou pendente mudou desde a gravação: é pista, não fato", "O handoff está corrompido e precisa ser gravado de novo antes de qualquer ação", "Faltam as perguntas-teste"],
           "certa": 1,
           "explica": "0 = igual, 2 = divergente (com a lista do que mudou), 3 = snapshot antigo sem bloco. Divergente pede conferir antes de agir.",
           "ref": "codigo",
@@ -192,15 +192,15 @@
         },
         {
           "p": "O hook pediu um handoff e, em 8 eventos, nada apareceu em handoffs/history/. O que acontece?",
-          "opcoes": ["Ele grava sozinho na hora", "Cobra de novo, até 2 vezes, e depois avisa você que o handoff NÃO foi gravado", "Bloqueia a sessão", "Nada"],
-          "certa": 1,
+          "opcoes": ["Bloqueia a sessão", "Ele mesmo grava o handoff na hora, numa cópia da sessão, sem você precisar pedir", "Cobra de novo, até 2 vezes, e depois avisa que o handoff NÃO foi gravado", "Nada"],
+          "certa": 2,
           "explica": "A conferência olha a transcrição: achou, \"Handoff conferido\"; não achou, cobra até 2 vezes e então avisa. Gravar sozinho só acontece na ociosidade, numa cópia da sessão.",
           "ref": "diagrama"
         },
         {
           "p": "\"Rodamos os testes de integração só com --fast nesta máquina\" vale para sempre neste projeto. Onde vai?",
-          "opcoes": ["No handoff", "Na memória persistente (CLAUDE.md ou AGENTS.md)", "No progress.md", "Em lugar nenhum"],
-          "certa": 1,
+          "opcoes": ["Na memória persistente (CLAUDE.md ou AGENTS.md)", "No progress.md", "No handoff, que o /prime lê no começo de toda sessão", "Em lugar nenhum"],
+          "certa": 0,
           "explica": "Continua verdade depois da tarefa: memória persistente. O handoff guarda o estado desta tarefa; o histórico registra o que aconteceu.",
           "ref": "diagrama"
         }

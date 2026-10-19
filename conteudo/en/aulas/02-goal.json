@@ -197,12 +197,12 @@
         {
           "p": "The criterion is \"pytest -q → 0 falhas\". Which cheat does it let through?",
           "opcoes": [
-            "None: 0 failures is enough proof",
             "Deleting the tests that fail",
+            "None: 0 failures is enough proof",
             "Running pytest twice",
             "Using another model"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "With no minimum count and no frozen tests/, deleting the failing test gives 0 failures. Level 3 adds \"≥ N tests\" and \"git diff --exit-code -- tests/ → 0\".",
           "ref": "diagrama",
           "cert": true
@@ -210,12 +210,12 @@
         {
           "p": "In Claude Code's /goal, why does the condition have to show up in the output?",
           "opcoes": [
-            "Because the evaluator reruns the commands",
-            "Because the evaluator only reads the conversation, without running commands or opening files",
             "Because Codex requires it",
-            "It doesn't have to: the evaluator reads state.md"
+            "It doesn't have to: the evaluator reads state.md",
+            "Because the evaluator only reads the conversation, without running commands or opening files",
+            "Because the evaluator reruns the commands cited and compares the output with the criterion"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "The /goal docs say the evaluator judges only what's in the conversation. That's why the condition is something the agent prints, like the test output.",
           "ref": "diagrama",
           "cert": true
@@ -223,24 +223,24 @@
         {
           "p": "Before any work, you ran the function criterion and it already passed. What does that tell you?",
           "opcoes": [
-            "That the task is easy",
             "That the criterion doesn't measure the task and needs to be rewritten",
             "That the agent will finish in 1 cycle",
-            "Nothing: it's expected"
+            "That the task is easy",
+            "Nothing: a function criterion must pass from the start, like the limit one"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "A function criterion that passes before the work can't tell done from not done. The limit one, on the other hand, should pass from the start.",
           "ref": "pratica"
         },
         {
           "p": "Which layer answers \"didn't touch what it shouldn't and didn't spend what it shouldn't\"?",
           "opcoes": [
-            "Function",
             "Regression",
             "Limit",
-            "Quick test"
+            "Quick test",
+            "Function"
           ],
-          "certa": 2,
+          "certa": 1,
           "explica": "Limit: frozen files, folders out of scope and forbidden spending. It's the one that closes the shortcut of tampering with the judge itself.",
           "ref": "diagrama"
         }

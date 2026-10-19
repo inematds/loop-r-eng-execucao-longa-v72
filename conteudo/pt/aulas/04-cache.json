@@ -164,31 +164,31 @@
       "perguntas": [
         {
           "p": "Por que o hook grava o handoff por ociosidade aos 45 min, e não aos 58?",
-          "opcoes": ["Porque aos 45 o cache já venceu", "Para chegar antes da compactação por ociosidade (53–58 min) e do fim do cache, com folga para a cópia rodar", "Porque o Claude Code exige 45", "Para interromper quem está trabalhando"],
-          "certa": 1,
+          "opcoes": ["Porque aos 45 min o cache já venceu e a cópia precisa rodar antes da compactação automática", "Para interromper quem está trabalhando", "Porque o Claude Code exige 45", "Para chegar antes da compactação por ociosidade e do fim do cache, com folga para a cópia"],
+          "certa": 3,
           "explica": "Gravar com o cache quente custa uma leitura barata. Aos 50 a cópia pode chegar depois do resumo ou passar dos 55 min do limite do cache. Quem está trabalhando não é interrompido: a cópia roda à parte.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "Nas medições de outubro, o cache das sessões longas...",
-          "opcoes": ["caiu a cada compactação", "ficou entre 93% e 99% e não piorou com as compactações", "ficou abaixo de 50%", "só existe no Codex"],
-          "certa": 1,
+          "opcoes": ["caiu um pouco a cada compactação, porque o resumo novo invalida o prefixo", "só existe no Codex", "ficou abaixo de 50%", "ficou entre 93% e 99% e não piorou com as compactações"],
+          "certa": 3,
           "explica": "93–99% em todas as sessões longas medidas. O que cresce sem compactar é o custo por turno (~5× no último décimo), não a perda de cache.",
           "ref": "passos",
           "cert": true
         },
         {
           "p": "Sessão parada há 3 h, 300 mil tokens, todas as decisões já no handoff desta sessão. O que fazer na volta?",
-          "opcoes": ["Reenviar: é sempre mais barato", "/clear e /prime com o handoff desta sessão", "Apagar o handoff", "Esperar mais uma hora"],
-          "certa": 1,
+          "opcoes": ["Esperar mais uma hora", "Apagar o handoff", "/clear e /prime com o handoff desta sessão", "Reenviar a mensagem: com 300 mil tokens já carregados, é sempre o mais barato"],
+          "certa": 2,
           "explica": "Com o caminho em arquivo, recomeçar limpo custa menos daí em diante (~10 mil × ~23 mil por turno, medido até 17/10). Reenviar só vale se algo ficou só na conversa.",
           "ref": "passos"
         },
         {
           "p": "A trava da pausa bloqueou a sua mensagem. Você quer continuar nesta sessão. O que fazer?",
-          "opcoes": ["Desligar o hook", "Reenviar a mesma mensagem: o bloqueio vale uma vez por pausa", "Esperar o cache voltar", "Rodar /compact antes"],
-          "certa": 1,
+          "opcoes": ["Rodar /compact antes, para a sessão caber no cache e a trava liberar", "Desligar o hook", "Esperar o cache voltar", "Reenviar a mesma mensagem: o bloqueio vale uma vez por pausa"],
+          "certa": 3,
           "explica": "O bloqueio é uma pergunta, não um erro: vale uma vez por pausa e fica gravado no estado da sessão. Reenviar passa direto.",
           "ref": "codigo"
         }

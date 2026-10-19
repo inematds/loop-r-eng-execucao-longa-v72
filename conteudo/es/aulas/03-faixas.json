@@ -197,12 +197,12 @@
         {
           "p": "En un modelo de 1M, ¿en cuántos tokens avisa el hook la franja 2 por defecto?",
           "opcoes": [
-            "~157 mil",
-            "~500 mil",
+            "~700 mil (70% de la ventana de 1 millón)",
             "~677 mil (70% de ~967 mil)",
+            "~157 mil",
             "~1 millón"
           ],
-          "certa": 2,
+          "certa": 1,
           "explica": "La cuenta es sobre el punto de compactación por tamaño (~967 mil), no sobre la ventana. Las franjas 112/157/191 mil eran del hook 1.2.x, que usaba el tope equivocado de 225 mil y se disparaba en medio del trabajo.",
           "ref": "diagrama",
           "cert": true
@@ -210,12 +210,12 @@
         {
           "p": "La franja 3 se disparó en medio de una refactorización. ¿Qué debe hacer el agente?",
           "opcoes": [
-            "Dejar la refactorización y pedir /clear de inmediato",
-            "Terminar la unidad en curso sin abrir trabajo nuevo y pedir handoff + sesión nueva al final de ella",
+            "Cerrar la unidad en curso sin abrir trabajo nuevo; al terminarla, handoff + sesión nueva",
             "Ignorar: es solo un aviso",
-            "Borrar el canal.md para liberar contexto"
+            "Borrar el canal.md para liberar contexto",
+            "Soltar la refactorización de inmediato, grabar el handoff y pedir /clear para abrir una sesión nueva limpia"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Desde la 1.4.1, la franja 3 y la 3ª compactación no mandan soltar todo a mitad de camino: la sesión nueva cuesta más lectura (80% de los primeros 25 pasos), así que llega al final de la unidad.",
           "ref": "diagrama",
           "cert": true
@@ -223,12 +223,12 @@
         {
           "p": "Dentro de la misma sesión, ¿qué guarda más detalle concreto (archivos, pasos)?",
           "opcoes": [
-            "El handoff",
             "El resumen de la compactación",
             "El canal.md",
+            "El handoff, que separa lo probado de lo supuesto",
             "El goal.md"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Medido el 15/10: el resumen cita 20–54 archivos; el handoff, 1–27. El handoff gana al separar lo probado de lo supuesto, en las decisiones y en sobrevivir a /clear. Por eso, los dos juntos.",
           "ref": "passos"
         },
@@ -236,9 +236,9 @@
           "p": "Tú usas Codex. ¿Cómo sigues las franjas?",
           "opcoes": [
             "El hook-longrun funciona igual",
-            "Sigues el % en /status y la regla del AGENTS.md, con /compact manual antes del 90%",
-            "No hace falta: Codex nunca compacta",
-            "Configurando el compact_prompt, que vale siempre"
+            "Mira el % en /status y sigue la regla del AGENTS.md, con /compact manual antes del 90%",
+            "Configurando el compact_prompt en config.toml, que Codex aplica en toda compactación automática",
+            "No hace falta: Codex nunca compacta"
           ],
           "certa": 1,
           "explica": "Codex no tiene hook de compactación ni contador. La regla escrita y tú hacen el papel del hook; y su compactación automática ignora el compact_prompt con modelo de OpenAI.",

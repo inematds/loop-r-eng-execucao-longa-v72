@@ -222,12 +222,12 @@
         {
           "p": "Who writes the state block (commit and sha256) of the handoff?",
           "opcoes": [
-            "The agent, at the end of the text",
+            "No one: it is optional",
+            "The agent, at the end of the handoff text, so the next one can check the commit",
             "handoff-grava.py; if the agent writes it, the script discards it",
-            "The hook, after compaction",
-            "No one: it is optional"
+            "The hook, after compaction"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "The proof left the text precisely because the agent certifies itself. The script writes the block, and that is what --conferir compares.",
           "ref": "diagrama",
           "cert": true
@@ -235,10 +235,10 @@
         {
           "p": "--conferir exited with code 2. What does that mean?",
           "opcoes": [
-            "The handoff is corrupted",
-            "Something cited or pending has changed since it was written: the handoff is a lead, not a fact",
-            "The test questions are missing",
-            "Everything is the same"
+            "Everything is the same",
+            "Something cited or pending has changed since it was written: it's a lead, not a fact",
+            "The handoff is corrupted and must be written again before any action",
+            "The test questions are missing"
           ],
           "certa": 1,
           "explica": "0 = same, 2 = divergent (with the list of what changed), 3 = old snapshot without the block. Divergent means check before acting.",
@@ -248,24 +248,24 @@
         {
           "p": "The hook asked for a handoff and, within 8 events, nothing appeared in handoffs/history/. What happens?",
           "opcoes": [
-            "It writes one on its own right away",
-            "It asks again, up to 2 times, and then warns you that the handoff was NOT written",
             "It blocks the session",
+            "It writes the handoff itself right away, from a copy of the session, without you having to ask",
+            "Asks again, up to 2 times, and then warns that the handoff was NOT written",
             "Nothing"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "The check looks at the transcript: if it finds it, \"Handoff conferido\"; if not, it asks up to 2 times and then warns. Writing on its own only happens during idle time, on a copy of the session.",
           "ref": "diagrama"
         },
         {
           "p": "\"We ran the integration tests with --fast only on this machine\" holds forever in this project. Where does it go?",
           "opcoes": [
-            "In the handoff",
             "In persistent memory (CLAUDE.md or AGENTS.md)",
             "In progress.md",
+            "In the handoff, which /prime reads at the start of every session",
             "Nowhere"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Still true after the task: persistent memory. The handoff holds the state of this task; the history records what happened.",
           "ref": "diagrama"
         }

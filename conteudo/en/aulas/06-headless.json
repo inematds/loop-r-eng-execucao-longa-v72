@@ -247,9 +247,9 @@
         {
           "p": "In the headless loop, who decides the run is over?",
           "opcoes": [
-            "The agent, by writing \"concluído\"",
+            "An evaluator that reads the conversation and checks whether the condition appeared",
             "The TESTE_FINAL run by the loop itself",
-            "An evaluator reading the conversation",
+            "The agent, by writing \"concluído\"",
             "MAX_CICLOS"
           ],
           "certa": 1,
@@ -260,12 +260,12 @@
         {
           "p": "The agent deleted a test that was failing. What does the loop do?",
           "opcoes": [
-            "Accepts it, because the tests pass",
-            "Reverts the protected files, counts the cycle as failed, and logs it in failures.md",
-            "Stops right away with code 1",
-            "Asks for confirmation"
+            "Reverts the protected files, counts the cycle as failed and notes it in failures.md",
+            "Asks for confirmation",
+            "Stops immediately with code 1 and leaves the deleted test on disk for you to review",
+            "Accepts it, because the tests pass"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "git checkout + git clean on the PROTEGIDOS, a failed cycle, and a line in failures.md. Three in a row end in PARADO for stagnation (exit 2).",
           "ref": "diagrama",
           "cert": true
@@ -273,22 +273,22 @@
         {
           "p": "The loop exited with code 3. What happened?",
           "opcoes": [
-            "Stagnation",
-            "Cycle cap",
             "Another loop is already running in the same folder (flock)",
-            "Final test passed"
+            "It hit the cycle cap (MAX_CICLOS) without the final test passing",
+            "Final test passed",
+            "Stagnation"
           ],
-          "certa": 2,
+          "certa": 0,
           "explica": "0 done, 1 cycle cap, 2 stagnation, 3 lock busy. This is the code that cron or systemd look at.",
           "ref": "diagrama"
         },
         {
           "p": "The good agent was flagged as \"touched a protected file\". Most likely cause?",
           "opcoes": [
-            "The model made a mistake",
-            "__pycache__ created by pytest inside tests/ without being in .gitignore",
             "Out of memory",
-            "The flock"
+            "__pycache__ created by pytest inside tests/, outside .gitignore",
+            "The flock",
+            "The model got it wrong and wrote to tests/ by mistake; switch to a bigger model"
           ],
           "certa": 1,
           "explica": "The loop treats an untracked file in a protected folder as a change. Put __pycache__/ in .gitignore and check git status --short tests/ after running the tests.",
@@ -297,12 +297,12 @@
         {
           "p": "What is MemoryMax per cycle for?",
           "opcoes": [
-            "Speed up the agent",
-            "To keep one cycle from eating the machine's memory and freezing the host before the OOM-killer acts",
-            "Limit tokens",
-            "Save the cache"
+            "To limit the tokens the agent spends per cycle, so the bill doesn't blow up",
+            "Save the cache",
+            "To keep a cycle from exhausting memory and freezing the host before the OOM-killer",
+            "Speed up the agent"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "systemd-run --user --scope -p MemoryMax puts a cap on the cycle's cgroup. With unified memory, thrashing freezes everything before the OOM-killer steps in.",
           "ref": "diagrama"
         }

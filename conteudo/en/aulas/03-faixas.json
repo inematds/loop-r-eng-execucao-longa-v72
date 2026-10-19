@@ -197,12 +197,12 @@
         {
           "p": "On a 1M model, at how many tokens does the hook warn for band 2 by default?",
           "opcoes": [
-            "~157 thousand",
-            "~500 thousand",
+            "~700 thousand (70% of the 1 million window)",
             "~677 thousand (70% of ~967 thousand)",
+            "~157 thousand",
             "~1 million"
           ],
-          "certa": 2,
+          "certa": 1,
           "explica": "The calculation is based on the compaction point by size (~967 thousand), not on the window. The 112/157/191 thousand bands were from hook 1.2.x, which used the wrong cap of 225 thousand and fired in the middle of the work.",
           "ref": "diagrama",
           "cert": true
@@ -210,12 +210,12 @@
         {
           "p": "Band 3 fired in the middle of a refactor. What should the agent do?",
           "opcoes": [
-            "Drop the refactor and ask for /clear right away",
-            "Finish the unit in progress without opening new work, and ask for handoff + new session at the end of it",
+            "Finish the unit in progress without opening new work; when it's done, handoff + new session",
             "Ignore it: it's just a warning",
-            "Delete canal.md to free up context"
+            "Delete canal.md to free up context",
+            "Drop the refactor right away, write the handoff and ask for /clear to open a clean new session"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Since 1.4.1, band 3 and the 3rd compaction no longer tell you to drop everything midway: the new session costs more to read (80% of the first 25 steps), so it comes at the end of the unit.",
           "ref": "diagrama",
           "cert": true
@@ -223,12 +223,12 @@
         {
           "p": "Within the same session, which one keeps more concrete detail (files, steps)?",
           "opcoes": [
-            "The handoff",
             "The compaction summary",
             "The canal.md",
+            "The handoff, which separates proven from guessed",
             "The goal.md"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Measured on 10/15: the summary cites 20–54 files; the handoff, 1–27. The handoff wins at separating proven from guessed, at decisions, and at surviving /clear. That's why you use both together.",
           "ref": "passos"
         },
@@ -236,9 +236,9 @@
           "p": "You use Codex. How do you follow the bands?",
           "opcoes": [
             "The hook-longrun works the same",
-            "You track the % in /status and follow the AGENTS.md rule, with a manual /compact before 90%",
-            "No need: Codex never compacts",
-            "By setting the compact_prompt, which always applies"
+            "Watches the % in /status and follows the AGENTS.md rule, with a manual /compact before 90%",
+            "By setting compact_prompt in config.toml, which Codex applies on every automatic compaction",
+            "No need: Codex never compacts"
           ],
           "certa": 1,
           "explica": "Codex has no compaction hook and no counter. The written rule and you play the role of the hook; and its automatic compaction ignores the compact_prompt with an OpenAI model.",

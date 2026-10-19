@@ -6,7 +6,7 @@
   "sub": "LOOP-R Engineering Track · course 2",
   "volta": {
     "t": "LOOP-R Engineering Track area",
-    "href": "https://eventos.inema.pro/loop-r-engenharia/"
+    "href": "https://eventos.inema.pro/loop-r-engenharia/en/"
   },
   "lado_card": {
     "rot": "This course's kit",
@@ -15,7 +15,7 @@
     "link": "Open the kit guide",
     "href": "https://inematds.github.io/execucao-longa/guia/"
   },
-  "rodape": "INEMA.CLUB · open and free content · INEMA Learning v7.2 format · LOOP-R Engineering Track, course 2 of 6 · <a href=\"https://eventos.inema.pro/loop-r-engenharia/\">eventos.inema.pro/loop-r-engenharia</a> · <a href=\"https://github.com/inematds/execucao-longa\">execucao-longa kit on GitHub</a> · <a href=\"https://inema.club/\">inema.club</a>",
+  "rodape": "INEMA.CLUB · open and free content · INEMA Learning v7.2 format · LOOP-R Engineering Track, course 2 of 6 · <a href=\"https://eventos.inema.pro/loop-r-engenharia/en/\">eventos.inema.pro/loop-r-engenharia</a> · <a href=\"https://github.com/inematds/execucao-longa\">execucao-longa kit on GitHub</a> · <a href=\"https://inema.club/\">inema.club</a>",
   "videos": {
     "execucao-longa-pratica": {
       "titulo": "Long Run in practice",
@@ -33,7 +33,7 @@
     "cta": "Start with lesson 1",
     "cta2": {
       "t": "See the track area",
-      "href": "https://eventos.inema.pro/loop-r-engenharia/"
+      "href": "https://eventos.inema.pro/loop-r-engenharia/en/"
     },
     "capa_alt": "Engineering workbench at night with a terminal, an instrument panel, and a cable in a loop.",
     "numeros": [

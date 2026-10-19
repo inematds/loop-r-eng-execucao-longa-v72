@@ -6,7 +6,7 @@
   "sub": "Formación LOOP-R Ingeniería · curso 2",
   "volta": {
     "t": "Área LOOP-R Ingeniería",
-    "href": "https://eventos.inema.pro/loop-r-engenharia/"
+    "href": "https://eventos.inema.pro/loop-r-engenharia/es/"
   },
   "lado_card": {
     "rot": "El kit de este curso",
@@ -15,7 +15,7 @@
     "link": "Abrir la guía del kit",
     "href": "https://inematds.github.io/execucao-longa/guia/"
   },
-  "rodape": "INEMA.CLUB · contenido abierto y gratuito · formato INEMA Learning v7.2 · Formación LOOP-R Ingeniería, curso 2 de 6 · <a href=\"https://eventos.inema.pro/loop-r-engenharia/\">eventos.inema.pro/loop-r-engenharia</a> · <a href=\"https://github.com/inematds/execucao-longa\">kit execucao-longa en GitHub</a> · <a href=\"https://inema.club/\">inema.club</a>",
+  "rodape": "INEMA.CLUB · contenido abierto y gratuito · formato INEMA Learning v7.2 · Formación LOOP-R Ingeniería, curso 2 de 6 · <a href=\"https://eventos.inema.pro/loop-r-engenharia/es/\">eventos.inema.pro/loop-r-engenharia</a> · <a href=\"https://github.com/inematds/execucao-longa\">kit execucao-longa en GitHub</a> · <a href=\"https://inema.club/\">inema.club</a>",
   "videos": {
     "execucao-longa-pratica": {
       "titulo": "Ejecución larga en la práctica",
@@ -33,7 +33,7 @@
     "cta": "Empezar por la clase 1",
     "cta2": {
       "t": "Ver el área de la formación",
-      "href": "https://eventos.inema.pro/loop-r-engenharia/"
+      "href": "https://eventos.inema.pro/loop-r-engenharia/es/"
     },
     "capa_alt": "Banco de ingeniería de noche con terminal, panel de instrumentos y un cable en lazo.",
     "numeros": [
